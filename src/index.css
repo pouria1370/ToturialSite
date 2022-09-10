@@ -1,13 +1,14 @@
-body {
+*{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding:0;
+  box-sizing: border-box;
+}
+@font-face{
+  font-family: 'iransanse';
+  src: './assests/fonts/FontsFree-Net-ir_sans.ttf' format('.ttf')
+}
+@font-face{
+  font-family: 'vazir';
+  src: './assests/fonts/FontsFree-Net-Vazir-Medium-1.ttf' format('.ttf')
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
