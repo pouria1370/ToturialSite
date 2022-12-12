@@ -1,0 +1,53 @@
+.productPage-mainInfo{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+}
+.carouselPictures{
+    width:40%;
+   
+}
+.mainInfo{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width:55%;
+    margin-left: 10px;
+}
+.columnNavigator{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-between;
+
+}
+.priceAndPopularity{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.productTitle{
+    align-self: flex-end;
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    margin-top: 20px;
+}
+.productPrice{
+    align-self: flex-start;
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.productRating{
+    align-self: flex-start;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.productPage-subPages{
+    width: 100%;
+    padding: 20px;
+}

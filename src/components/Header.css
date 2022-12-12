@@ -1,0 +1,25 @@
+.appbar{
+background-color: red;
+}
+
+.mySlider{
+
+color: red ;
+position: static ;
+
+}
+.mySlider .thumb{
+    color: yellow;
+}
+.mySlider_2 {
+
+color: rgb(0, 55, 255) ;
+position: static ;
+
+}
+.mySlider  .MuiSlider-thumb{
+    color: blueviolet;
+}
+.MuiButton .MuiButton-text{
+color: red;
+}

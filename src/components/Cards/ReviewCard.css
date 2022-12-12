@@ -1,0 +1,10 @@
+.ReviewCard-container{
+    display: flex;
+    flex-direction: column;
+
+}
+.ReviewCard-likes{
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+}

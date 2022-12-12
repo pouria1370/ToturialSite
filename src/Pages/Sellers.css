@@ -1,0 +1,6 @@
+.Sellers-Container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-end;
+}
