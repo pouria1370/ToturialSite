@@ -1,5 +1,5 @@
-import { CircularProgress } from '@material-ui/core';
-import { Rating } from '@mui/material';
+
+import { CircularProgress, Rating } from '@mui/material';
 import React from 'react'
 import './SellerCard.css'
 const SellerCard = ({productInfo}) => {
