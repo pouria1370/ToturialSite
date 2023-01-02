@@ -1,7 +1,6 @@
-import { Avatar, createTheme, Grid, Stack, ThemeProvider } from "@mui/material";
-import { purple } from "@material-ui/core/colors";
-import { Box, Paper, Typography } from "@mui/material";
-import { blue, green, pink, red, yellow } from "@mui/material/colors";
+import {  createTheme, Grid, ThemeProvider } from "@mui/material";
+
+import { blue, red, yellow } from "@mui/material/colors";
 import { Container } from "@mui/system";
 import React from "react";
 import "./landingPage.css";

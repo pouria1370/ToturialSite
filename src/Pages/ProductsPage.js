@@ -12,7 +12,6 @@ import {
   ListSubheader,
   Pagination,
   Slider,
-  Typography,
 } from "@mui/material";
 import { red } from "@mui/material/colors";
 import Grid from "@mui/material/Grid";
@@ -20,7 +19,6 @@ import React, { useCallback, useEffect, useState } from "react";
 import Product from "../components/Product";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { width } from "@mui/system";
 const ProductsPage = () => {
   /**Variables */
   const [products, setProducts] = useState([]);
