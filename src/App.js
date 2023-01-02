@@ -25,6 +25,8 @@ import AboutProduct from "./Pages/AboutProduct";
 import Sellers from "./Pages/Sellers";
 import ReviewProduct from "./Pages/ReviewProduct";
 import ProductDetails from "./Pages/ProductDetails";
+import { ThemeProvider } from "@emotion/react";
+import { createTheme } from "@mui/material";
 const Data = [
   { name: "pouria", family: "kalantari", id: "jhbjgadjh" },
   { name: "pouria2", family: "kalantari2", id: "jhbjgadjdh" },
@@ -35,12 +37,73 @@ const Data2 = [
 ];
 
 const App = () => {
+  const myTheme = createTheme({
+    palette: {
+      primary: {
+        main: "#6C00FF",
+      },
+      secondary: {
+        main: "#2DCDDF",
+      },
+      
+    },
+    components:{
+      MuiSlider:{
+        styleOverrides:{
+          thumb:{
+            color:'#fff'
+          }
+        }
+      },
+      MuiButton:{
+        styleOverrides:{
+          root:({ownerState})=>({
+            ...(ownerState.color==="secondary"&&{
+              opacity:'0.3',
+              fontSize:'2rem'
+            })
+          })
+        },
+        variants:[
+          {
+            props: { color: 'primary' },
+            style: {
+              textTransform: 'none',
+              border: `2px dashed #21f254`,
+            },
+          },
+          {
+            props: { variant: 'dashed', color: 'secondary' },
+            style: {
+              border: `4px dashed red`,
+            },
+          },
+        ],
+        
+      }
+    },
+    typography:{
+      h1:{
+        fontSize:'1rem',
+        fontFamily:"Lucida Sans",
+      },
+      button:{
+        fontSize:'0.6rem',
+        fontFamily:'Lucida Sans',
+        fontWeight:'400', 
+      }
+    }
+  })
 
   return (
     <ContextProvider>
+    <ThemeProvider theme={myTheme}>
       <Header />
       <Routes>
-        <Route path="/" element={<CarouselSection JsxTag={CardCarousel} items={Data}/>}></Route>
+        <Route path="/" element={<>
+          <CarouselSection JsxTag={CardCarousel} items={Data}/>
+          <LandingPage/>
+          </>}></Route>
         <Route path="/articles" element={<><Toturials /><TimelineSection titlesArray={Data2}/></>}></Route>
         <Route path="/connectUs" element={<><ReviewSection JsxTag={TestCard} URL="https://jsonplaceholder.ir/users"/> <Resume /></>}></Route>
         <Route path="/aboutUs" element={<><Aboutme /> <LoginRegistery/></>}></Route>
@@ -62,6 +125,7 @@ const App = () => {
       </Routes>
       <CardDrawer/>
       <Footer/>
+      </ThemeProvider>
     </ContextProvider>
   );
 };

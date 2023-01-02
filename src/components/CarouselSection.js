@@ -4,8 +4,8 @@ import Carousel from "react-material-ui-carousel";
 
 const CarouselSection = ({ items, JsxTag }) => {
   return (
-    <Carousel>
-    {items.map((item)=><JsxTag item={item}/>)}
+    <Carousel animation="slide" sx={{mt:"10%",mb:'10%'}}>
+    {items.map((subItem)=><JsxTag item={subItem}/>)}
     </Carousel>   
   )
 }

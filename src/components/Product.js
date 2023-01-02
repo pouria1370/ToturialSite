@@ -8,9 +8,7 @@ import {useNavigate} from 'react-router-dom'
 const Product = ({options}) => {
   const contextData=useContext(cardContext)
   const navigate=useNavigate()
-  useEffect(() => {
-    console.log("i am pROduct again because of useHook rerendered")
-  },[])
+ 
   const clickHandler=()=>{
    navigate(`${options.id}`,{replace:false})
    console.log("Dd")
