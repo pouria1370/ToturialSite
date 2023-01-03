@@ -20,7 +20,7 @@ const ProductPage = () => {
     })();
   }, [productID]);
   return(
-    <Wrapper>
+    <Wrapper >
       <div className="productPage-mainInfo">
         <div className="carouselPictures">
           {!productInfo ? (

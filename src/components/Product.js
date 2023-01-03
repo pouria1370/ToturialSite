@@ -1,9 +1,8 @@
 import { Avatar, Button, Card, CardActions, CardContent, CardHeader, CardMedia, IconButton, Typography } from '@mui/material'
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { cardContext } from '../DataManagmnet/context-provider'
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { red } from '@mui/material/colors';
-import { OptionUnstyled } from '@mui/base';
 import {useNavigate} from 'react-router-dom'
 const Product = ({options}) => {
   const contextData=useContext(cardContext)

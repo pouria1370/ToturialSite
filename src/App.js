@@ -80,6 +80,12 @@ const App = () => {
           },
         ],
         
+      },
+      MuiIconButton:{
+        styleOverrides:{
+          root:{color:(theme)=>`${theme.palette.primary.main}`},
+          '&:hover':{color:'red'}
+        }
       }
     },
     typography:{
