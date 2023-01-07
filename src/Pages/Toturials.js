@@ -1,11 +1,15 @@
 import React from "react";
-import { NavLink, Outlet, Route, Routes, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
+import TimelineSection from "../components/timelineSection";
 
 
 const Toturials = () => {
   const navigate=useNavigate();
+  const Data2 = [
+    "Pouria","Parisa","Parsa"
+  ];
   return (
-   <>Toturials</>
+   <><TimelineSection titlesArray={Data2}/></>
   );
 };
 

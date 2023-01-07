@@ -11,7 +11,7 @@ export default function ReviewOfCustomers({item}) {
   return (
     <Box sx={{ display: 'flex', flexWrap: 'wrap', minWidth: 300, width: '100%' }}>
     {item.map((subItem) => (
-         <Card sx={{width:'33%',fontFamily:'vazir' }}>
+         <Card sx={{width:'32%',fontFamily:'vazir',border:"3px solid #579BB1" ,margin:'0px 3px'}}>
          <CardHeader
            avatar={
              <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">

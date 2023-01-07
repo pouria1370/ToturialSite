@@ -1,4 +1,4 @@
-import { Box, createTheme } from "@mui/material";
+import { Box, Container, createTheme } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -44,7 +44,7 @@ const Footer = () => {
   return (
     <React.Fragment>
       {products.length ? (
-        <>
+        <Container maxWidth="x" sx={{background:'linear-gradient(to left, #DFD3C3,transparent)'}}>
         <CarouselSection
           items={[...arrayData
           ]}
@@ -54,7 +54,7 @@ const Footer = () => {
           items={ [...arrayData] }
           JsxTag={ReviewOfCustomers}
         />
-        </>
+        </Container>
       ) : (
         <CircularProgress />
       )}
@@ -62,9 +62,10 @@ const Footer = () => {
         sx={{
           display: "flex",
           flexDirection: "row",
-          width: "100%",
+          width: "100% !important",
           top: window.innerHeight * 1 - 500 + "px",
-          background:'linear-gradient(to right,#F2DEBA,transparent)' 
+          background:'#F2DEBA' ,
+          p:'10px'
         }}
       >
         <Box

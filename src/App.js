@@ -1,14 +1,8 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import CardCarousel from "./components/CarouselItems/CardCarousel";
-import TestCard from "./components/Cards/testCard";
-import CarouselSection from "./components/CarouselSection";
 import Header from "./components/Header";
-import ReviewSection from "./components/reviewSection";
-import TimelineSection from "./components/timelineSection";
 import Aboutme from "./Pages/Aboutme";
 import LandingPage from "./Pages/LandingPage";
-import Resume from "./Pages/Resume";
 import Toturials from "./Pages/Toturials";
 import LoginRegistery from "./components/LoginRegistery";
 import CardDrawer from "./components/CardDrawer";
@@ -26,15 +20,14 @@ import Sellers from "./Pages/Sellers";
 import ReviewProduct from "./Pages/ReviewProduct";
 import ProductDetails from "./Pages/ProductDetails";
 import { ThemeProvider } from "@emotion/react";
-import { createTheme } from "@mui/material";
+import { Container, createTheme } from "@mui/material";
+import ContactUs from "./Pages/ContactUs";
 const Data = [
   { name: "pouria", family: "kalantari", id: "jhbjgadjh" },
   { name: "pouria2", family: "kalantari2", id: "jhbjgadjdh" },
   { name: "pouria3", family: "kalantari3", id: "jhbjgadjeeeeeeeeefh" },
 ];
-const Data2 = [
-  "Pouria","Parisa","Parsa"
-];
+
 
 const App = () => {
   const myTheme = createTheme({
@@ -84,7 +77,7 @@ const App = () => {
       MuiIconButton:{
         styleOverrides:{
           root:{color:(theme)=>`${theme.palette.primary.main}`},
-          '&:hover':{color:'red'}
+          
         }
       }
     },
@@ -105,13 +98,13 @@ const App = () => {
     <ContextProvider>
     <ThemeProvider theme={myTheme}>
       <Header />
+      <Container maxWidth="x">
       <Routes>
-        <Route path="/" element={<>
-          <CarouselSection JsxTag={CardCarousel} items={Data}/>
+        <Route path="/" element={       
           <LandingPage/>
-          </>}></Route>
-        <Route path="/articles" element={<><Toturials /><TimelineSection titlesArray={Data2}/></>}></Route>
-        <Route path="/connectUs" element={<><ReviewSection JsxTag={TestCard} URL="https://jsonplaceholder.ir/users"/> <Resume /></>}></Route>
+          }></Route>
+        <Route path="/articles" element={<Toturials />}></Route>
+        <Route path="/contactus" element={<ContactUs/>}></Route>
         <Route path="/aboutUs" element={<><Aboutme /> <LoginRegistery/></>}></Route>
         <Route path="/loginregistery" element={<LoginRegistery/>}></Route>
         <Route path="/products" element={<ProductsPage/>}></Route>
@@ -130,6 +123,7 @@ const App = () => {
 
       </Routes>
       <CardDrawer/>
+      </Container>
       <Footer/>
       </ThemeProvider>
     </ContextProvider>
