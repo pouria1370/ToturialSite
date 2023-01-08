@@ -4,12 +4,13 @@ import {
   Container,
   FormControl,
   FormHelperText,
+  InputAdornment,
   MenuItem,
   Select,
   TextField,
 } from "@mui/material";
 import InputLabel from "@mui/material/InputLabel";
-import React, { useState } from "react";
+import React, { Children, useState } from "react";
 
 const ContactUs = () => {
   const [work, setWork] = useState("");
@@ -42,8 +43,14 @@ const ContactUs = () => {
   };
   const submitHandler = (event) => {};
   return (
-    <Container sx={{ m: "10% auto", width: "80%",background:'linear-gradient(to left,#E5E5CB,transparent)' }}>
-      <Box  width="60%">
+    <Container
+      sx={{
+        m: "10% auto",
+        width: "80%",
+        background: "linear-gradient(to left,#E5E5CB,transparent)",
+      }}
+    >
+      <Box width="60%">
         <FormControl sx={{ m: 1, minWidth: 120 }}>
           <InputLabel id="demo-simple-select-helper-label">
             Your Work :
@@ -78,65 +85,61 @@ const ContactUs = () => {
             onChange={agentHandler}
           >
             {work === "Cooperation"
-              ? dataAgentWork
-                  .filter((item) => item.work === "Cooperation")
-                  .map((item) => (
-                    <MenuItem
-                      key={item.agent}
-                      value={
-                        item.gender === "female" ? "Msc." : "Mr." + item.agent
-                      }
-                    >
-                      {item.gender === "female" ? "Msc" : "Mr"}.{item.agent}
-                    </MenuItem>
-                  ))
+              ? 
+             [
+              <MenuItem value="Msc.Naderi1" key="naderi1">Msc.Naderi1</MenuItem>,
+              <MenuItem value="Msc.Naderi2" key="naderi2">Msc.Naderi2</MenuItem>,
+              <MenuItem value="Msc.Naderi3" key="naderi3">Msc.Naderi3</MenuItem>,
+             ]
               : work === "Suggestion"
-              ? dataAgentWork
-                  .filter((item) => item.work === "Suggestion")
-                  .map((item) => (
-                    <MenuItem
-                      key={item.agent}
-                      value={
-                        item.gender === "female" ? "Msc." : "Mr." + item.agent
-                      }
-                    >
-                      {item.gender === "female" ? "Msc" : "Mr"}.{item.agent}
-                    </MenuItem>
-                  ))
+              ?[
+                <MenuItem value="Msc.Naderi4" key="naderi4">Msc.Naderi4</MenuItem>,
+              <MenuItem value="Msc.Naderi5" key="naderi5">Msc.Naderi5</MenuItem>,
+              <MenuItem value="Msc.Naderi6" key="naderi6">Msc.Naderi6</MenuItem>,
+              ]
               : work === "Complaint"
-              ? dataAgentWork
-                  .filter((item) => item.work === "Complaint")
-                  .map((item) => (
-                    <MenuItem
-                      key={item.agent}
-                      value={
-                        item.gender === "female" ? "Msc." : "Mr." + item.agent
-                      }
-                    >
-                      {item.gender === "female" ? "Msc" : "Mr"}.{item.agent}
-                    </MenuItem>
-                  ))
-              : dataAgentWork
-                  .filter((item) => item.work === "Apply Job")
-                  .map((item) => (
-                    <MenuItem
-                      key={item.agent}
-                      value={
-                        item.gender === "female" ? "Msc." : "Mr." + item.agent
-                      }
-                    >
-                      {item.gender === "female" ? "Msc" : "Mr"}.{item.agent}
-                    </MenuItem>
-                  ))}
+              ? [
+                <MenuItem value="Msc.Naderi7" key="naderi7">Msc.Naderi7</MenuItem>,
+                <MenuItem value="Msc.Naderi8" key="naderi8">Msc.Naderi8</MenuItem>,
+                <MenuItem value="Msc.Naderi9" key="naderi9">Msc.Naderi9</MenuItem>
+              ]
+              :
+              [
+                <MenuItem value="Msc.Naderi10" key="naderi10">Msc.Naderi10</MenuItem>,
+                <MenuItem value="Msc.Naderi11" key="naderi11">Msc.Naderi11</MenuItem>,
+                <MenuItem value="Msc.Naderi12" key="naderi12">Msc.Naderi12</MenuItem>,
+              ]}
           </Select>
           <FormHelperText>who is your agent?</FormHelperText>
         </FormControl>
       </Box>
-      <Box >
+      <Box>
         <form onSubmit={submitHandler}>
           <div></div>
-          <TextField multiline rows={12} sx={{ width: "60%" }} />
-          <Button sx={{display:'block',width:'20%',m:'20px auto',fontSize:'20px'}}>Submit</Button>
+          <TextField
+          
+            multiline
+            rows={12}
+            sx={{ width: "60%",position:'relative' }}
+            InputProps={{
+              startAdornment: (
+                <><InputAdornment position="start" sx={{position:"absolute", top:'20px'}}>Hello {agent}</InputAdornment>
+                <InputAdornment position="start" sx={{position:"absolute", top:'40px',left:'10px'}}>In regarding to {work}</InputAdornment>
+                
+                </>      
+              )
+            }}
+          />
+          <Button
+            sx={{
+              display: "block",
+              width: "20%",
+              m: "20px auto",
+              fontSize: "20px",
+            }}
+          >
+            Submit
+          </Button>
         </form>
       </Box>
     </Container>
