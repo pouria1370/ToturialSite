@@ -56,8 +56,9 @@ const useCard = () => {
   const reduceCard = (product) => {
     let adjactedArray = [...card];
     let index = card.findIndex((current) => current.title === product.title);
-    if (index!==-1&&adjactedArray[index].count!=='1')
-     { adjactedArray.splice(index, 1, {
+    if (+adjactedArray[index].count!==1)
+     { 
+       adjactedArray.splice(index, 1, {
         ...adjactedArray[index],
         count: `${+adjactedArray[index].count-1}`,
       })

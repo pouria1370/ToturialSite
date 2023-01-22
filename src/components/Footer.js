@@ -37,7 +37,7 @@ const Footer = () => {
     (async function fetchingData() {
       const result = await fetch(`https://dummyjson.com/products`);
       const data = await result.json();
-      setProducts(data.products);console.log(data)
+      setProducts(data.products);
     })();
   }, []);
 

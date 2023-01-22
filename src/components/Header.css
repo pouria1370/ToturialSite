@@ -26,9 +26,15 @@ color: red;
 
 .wishlist__count__number{
     position: absolute;
-    left: 10px;
-    right: 10px;
-    top:18px;
-    color:red
+    left: 28px;
+    right: 8px;
+    top:12px;
+    color:white;
+    border:none;
+    border-radius: 50%;
+    background-color: red;
+    height: 17px;
+    width: 17px;
+    font-size: 12px;
 }
 

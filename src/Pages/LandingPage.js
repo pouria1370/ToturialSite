@@ -17,42 +17,7 @@ const LandingPage = () => {
 <Box gridColumn="span 2" sx={{height:'100px',background:"#6C00FF"}}></Box>
 
   </Box>
- <List component="div" sx={{position:"fixed",top:'100px',width:'20%',overflowY:"auto",height:'100px'}}  >
-           {
-             <>
-             <FormControlLabel control={<Checkbox />} label="HELLOW" />
-             <FormControlLabel control={<Checkbox />} label="HELLOW" />
-             <FormControlLabel control={<Checkbox />} label="HELLOW" />
-             <FormControlLabel control={<Checkbox />} label="HELLOW" />
-             <FormControlLabel control={<Checkbox />} label="HELLOW" />
-             <FormControlLabel control={<Checkbox />} label="HELLOW" />
-             <FormControlLabel control={<Checkbox />} label="HELLOW" />
-             <FormControlLabel control={<Checkbox />} label="HELLOW" />
-             <FormControlLabel control={<Checkbox />} label="HELLOW" />
-             <FormControlLabel control={<Checkbox />} label="HELLOW" />
-             <FormControlLabel control={<Checkbox />} label="HELLOW" />
-             <FormControlLabel control={<Checkbox />} label="HELLOW" />
-             <FormControlLabel control={<Checkbox />} label="HELLOW" />
-             <FormControlLabel control={<Checkbox />} label="HELLOW" />
-             <FormControlLabel control={<Checkbox />} label="HELLOW" />
-             <FormControlLabel control={<Checkbox />} label="HELLOW" />
-             <FormControlLabel control={<Checkbox />} label="HELLOW" />
-             <FormControlLabel control={<Checkbox />} label="HELLOW" />
-             <FormControlLabel control={<Checkbox />} label="HELLOW" />
-             <FormControlLabel control={<Checkbox />} label="HELLOW" />
-             <FormControlLabel control={<Checkbox />} label="HELLOW" />
-             <FormControlLabel control={<Checkbox />} label="HELLOW" />
-             <FormControlLabel control={<Checkbox />} label="HELLOW" />
-             <FormControlLabel control={<Checkbox />} label="HELLOW" />
-             <FormControlLabel control={<Checkbox />} label="HELLOW" />
-             <FormControlLabel control={<Checkbox />} label="HELLOW" />
-             <FormControlLabel control={<Checkbox />} label="HELLOW" />
-             <FormControlLabel control={<Checkbox />} label="HELLOW" />
-             <FormControlLabel control={<Checkbox />} label="HELLOW" />
-             </>
-           }
-            </List>
- </>
+</>
 
   );
 };

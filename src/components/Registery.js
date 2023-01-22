@@ -1,15 +1,21 @@
 import {
+  Autocomplete,
   Button,
   CircularProgress,
   FormControl,
+  MenuItem,
+  Select,
   TextField,
 } from "@mui/material";
 import React, { useRef, useState } from "react";
 
 const Registery = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [gender, setGender] = useState("Transgender")
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
+  /**Handlers */
+
   const submitHandler = async (event) => {
     event.preventDefault();
     /// 1: fetching data
@@ -43,19 +49,44 @@ const Registery = () => {
     /// 3: showing Data
     console.log("hello");
   };
+
+  const genderHandler = (event) => {
+    setGender(event.target.value);
+  };
+
   return (
-    <FormControl component="form" onSubmit={submitHandler}>
+    <FormControl component="form" onSubmit={submitHandler} className="register">
       <TextField
-        label="email"
+        label="Registery-email"
         inputRef={emailRef}
         inputProps={{ type: "email" }}
+        sx={{m:1}}
       />
       <TextField
-        label="password"
+        label="Registery-password"
         inputProps={{ type: "password" }}
         inputRef={passwordRef}
+        sx={{m:1}}
+
       />
-      {isLoading ? <CircularProgress /> : <Button type="submit">Submit</Button>}
+
+      <Select
+            labelId="demo-simple-select-helper-label"
+            id="demo-simple-select-helper"
+            value={gender}
+            label="Gender"
+            color="primary"
+            onChange={genderHandler}
+        sx={{m:1}}
+
+          >
+            <MenuItem value="Male">Male</MenuItem>
+            <MenuItem value="Female">Female</MenuItem>
+            <MenuItem value="Transgender">Transgender</MenuItem>
+           
+          </Select>
+       
+      {isLoading ? <CircularProgress /> : <Button  sx={{m:1,fontSize:'20px'}}   type="submit">Submit</Button>}
     </FormControl>
   );
 };

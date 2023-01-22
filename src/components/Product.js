@@ -12,7 +12,7 @@ const Product = ({options}) => {
    navigate(`${options.id}`,{replace:false})
   }
   return (
-    <Card >
+    <Card sx={{m:" 5px 8px",boxShadow:"1px 2px 2px 2px #ada7a6 "}}>
     <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -34,8 +34,8 @@ const Product = ({options}) => {
         alt={options.title}
         onClick={clickHandler}
       />
-    <CardContent>
-    <Typography component='body2'>{options.description}</Typography>
+    <CardContent sx={{p:'2px'}}>
+    <Typography component='body2' noWrap>{options.description}</Typography>
     </CardContent>
     <CardActions>
     <Button onClick={contextData.addOrRemove.bind(null,options)}>{contextData.card.find(current=>current.title===options.title)?"Remove Product":"Add Product"}</Button>

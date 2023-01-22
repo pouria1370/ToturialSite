@@ -10,7 +10,7 @@ import {
   TextField,
 } from "@mui/material";
 import InputLabel from "@mui/material/InputLabel";
-import React, { Children, useState } from "react";
+import React, {  useState } from "react";
 
 const ContactUs = () => {
   const [work, setWork] = useState("");
@@ -115,20 +115,25 @@ const ContactUs = () => {
       </Box>
       <Box>
         <form onSubmit={submitHandler}>
-          <div></div>
+           <div></div> 
           <TextField
-          
-            multiline
+          disabled
             rows={12}
-            sx={{ width: "60%",position:'relative' }}
+            sx={{ width: "60%",position:'relative' ,m:1, pb:2}}
             InputProps={{
               startAdornment: (
-                <><InputAdornment position="start" sx={{position:"absolute", top:'20px'}}>Hello {agent}</InputAdornment>
-                <InputAdornment position="start" sx={{position:"absolute", top:'40px',left:'10px'}}>In regarding to {work}</InputAdornment>
-                
+                <><InputAdornment position="start" sx={{position:"absolute", top:'20px',fontSize:"12px",fontStyle:" bold"}}>Hello {agent}</InputAdornment>
+                <InputAdornment position="start" sx={{position:"absolute", top:'45px',left:'14px',fontSize:"12px",fontStyle:"italic"}}>In regarding to {work}</InputAdornment>              
                 </>      
               )
             }}
+          />
+          <TextField
+
+            rows={12}
+            multiline
+            sx={{ width: "90%",position:'relative' ,ml:1,mb:1,mr:1,mt:0.5, pb:2}}
+         placeholder=" Your Idea "
           />
           <Button
             sx={{

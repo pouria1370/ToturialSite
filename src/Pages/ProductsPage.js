@@ -11,11 +11,10 @@ import {
   ListSubheader,
   Pagination,
   Slider,
-  styled,
 } from "@mui/material";
 import { red } from "@mui/material/colors";
 import Grid from "@mui/material/Grid";
-import React, { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
+import React, {useCallback, useEffect, useMemo,useState} from "react";
 import Product from "../components/Product";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -23,6 +22,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 
 const ProductsPage = () => {
+  console.log('ssss')
 
   /**Variables */
   const [products, setProducts] = useState([]);
@@ -30,7 +30,7 @@ const ProductsPage = () => {
   const [openCategory, setOpenCategory] = useState(false);
   const [openPrice, setOpenPrice] = useState(false);
   const [page, setPage] = useState(1);
-  const [topScrolled,setTopScrolled]=useState('100px')
+  const [topScrolled,setTopScrolled]=useState('400px')
 
   /**Utilities */
   const getUnduplicateCategories = () => {
@@ -41,7 +41,7 @@ const ProductsPage = () => {
     return unduplicatedCategories;
     }
 
-  const getSortedBrands = (products) => {
+  const getSortedBrands = useCallback((products) => {
     const firstArray = products.map((item) => item.brand);
     const filteredFirstArray = firstArray.filter(
       (item, index) => firstArray.indexOf(item) === index
@@ -51,11 +51,11 @@ const ProductsPage = () => {
     );
     let sortedBrands = [...transformedArray.sort((a, b) => (a > b ? 1 : -1))];
     return sortedBrands;
-  };
+  },[products])
 
   /**variables */
-  let data_1 = useMemo(()=>getUnduplicateCategories(products),[products]);
-  let data_2 = useMemo(getSortedBrands(products),[products]);
+  let data_1 = useMemo(()=>getUnduplicateCategories(products),[products])
+  let data_2 = useMemo(()=>getSortedBrands(products),[products])
   let unduplicatedCategories = data_1 ? data_1 : [];
   let sortedBrands = data_2 ? data_2 : [];
 
@@ -76,10 +76,7 @@ const ProductsPage = () => {
   const getValue = (value) => {
     return `${value}$`;
   };
-  const changeTop=()=>{
-console.log('eee')
-  }
-
+ 
   /** UseEffects and SideEffects */
   useEffect(() => {
     (async function () {
@@ -100,10 +97,8 @@ console.log('eee')
   window.addEventListener('scroll',handle)
   return(()=>{
     window.removeEventListener('scroll',handle)
-   
-
   })
-  },[page])
+  },[])
 
 
   return (
@@ -114,9 +109,9 @@ console.log('eee')
       gap={2}
       columnGap={1}
     >
-      <Box gridColumn="span 2">
+      <Box gridColumn="span 2" maxWidth='200px'>
         <List
-          style={{ width: "15%", backgroundColor: red[100], position: "fixed",top:topScrolled}}
+          style={{ width: "100%", backgroundColor: red[100], position: "sticky",top:topScrolled,transition:'all 0.5s'}}
       
           subheader={
             <ListSubheader
@@ -127,12 +122,12 @@ console.log('eee')
             </ListSubheader>
           }
         >
-          <ListItemButton onClick={clickHandler__brand}>
+          <ListItemButton onClick={clickHandler__brand}  >
             <ListItemText primary="Brands" />
-            <ListItemIcon>
+            <ListItemIcon sx={{right:'-20%',position:'relative'}} >
               {open ? <ExpandLessIcon /> : <ExpandMoreIcon />}
             </ListItemIcon>
-          </ListItemButton>
+          </ListItemButton >
           <Collapse in={open} timeout="auto" unmountOnExit>
             <List
               component="div"
@@ -156,7 +151,7 @@ console.log('eee')
           </Collapse>
           <ListItemButton onClick={clickHandler__category}>
             <ListItemText primary="category" />
-            <ListItemIcon>
+            <ListItemIcon sx={{right:'-20%',position:'relative'}}>
               {openCategory ? <ExpandLessIcon /> : <ExpandMoreIcon />}
             </ListItemIcon>
           </ListItemButton>
@@ -173,7 +168,7 @@ console.log('eee')
           </Collapse>
           <ListItemButton onClick={clickHandler__price}>
             <ListItemText primary="Price_Range" />
-            <ListItemIcon>
+            <ListItemIcon sx={{right:'-20%',position:'relative'}}>
               {openPrice ? <ExpandLessIcon /> : <ExpandMoreIcon />}
             </ListItemIcon>
           </ListItemButton>
@@ -199,9 +194,9 @@ console.log('eee')
         {products.length !== 0 ? (
           products
             .slice((page - 1) * 10, (page - 1) * 10 + 10)
-            .map((singleProduct) => (
+            .map((singleProduct,__index) => (
               <Grid
-                key={singleProduct.id}
+                key={singleProduct.id+__index}
                 md={6}
                 lg={6}
                 xl={4}

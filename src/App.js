@@ -79,6 +79,16 @@ const App = () => {
           root:{color:(theme)=>`${theme.palette.primary.main}`},
           
         }
+      },
+      MuiListItemButton:{
+        styleOverrides:{
+          root:{
+            display:"flex",
+            flexDirection:"row",
+            justifyItems:"space-between",
+           
+          }
+        },
       }
     },
     typography:{

@@ -3,11 +3,11 @@ import React from 'react'
 
 const Login = () => {
     return (
-        <FormControl>
-            <TextField label="email" inputProps={{type:'email'}}/>
-            <TextField label="password" inputProps={{type:'password'}}/>
+        <FormControl className='login' >
+            <TextField  sx={{m:1}} label="Login-email" inputProps={{type:'email'}}/>
+            <TextField  sx={{m:1}} label="Login-password" inputProps={{type:'password'}}/>
             
-            <Button>Submit</Button>
+            <Button  sx={{m:1,fontSize:"20px"}}>Submit</Button>
         </FormControl>
     )
 }

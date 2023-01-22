@@ -7,9 +7,7 @@ import WishListCard from "./Cards/wishListCard";
 
 const CardDrawer = () => {
   const contextData = useContext(cardContext);
-  useEffect(() => {
-    console.log("i am Drawer again because of useHook rerendered");
-  }, []);
+
   return (
     <Drawer
       open={contextData.showDrawer}
@@ -23,7 +21,7 @@ const CardDrawer = () => {
             <WishListCard key={singleCard.id} options={singleCard} />
            </Stack>
         ))}
-        <Button>Checkout</Button>
+        <Button sx={{m:"10px"}}>Checkout</Button>
         </>
 
       ) : (
