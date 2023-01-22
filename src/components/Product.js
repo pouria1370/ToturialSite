@@ -10,10 +10,9 @@ const Product = ({options}) => {
  
   const clickHandler=()=>{
    navigate(`${options.id}`,{replace:false})
-   console.log("Dd")
   }
   return (
-    <Card onClick={clickHandler}>
+    <Card >
     <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -33,6 +32,7 @@ const Product = ({options}) => {
         height="194"
         image={options.images[0]}
         alt={options.title}
+        onClick={clickHandler}
       />
     <CardContent>
     <Typography component='body2'>{options.description}</Typography>
