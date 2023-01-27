@@ -38,7 +38,7 @@ const Product = ({options}) => {
     <Typography component='body2' noWrap>{options.description}</Typography>
     </CardContent>
     <CardActions>
-    <Button onClick={contextData.addOrRemove.bind(null,options)}>{contextData.card.find(current=>current.title===options.title)?"Remove Product":"Add Product"}</Button>
+    <Button onClick={contextData.addOrRemove.bind(null,options)} sx={{color:contextData.card.find(current=>current.title===options.title)?'red':'black'}}>{contextData.card.find(current=>current.title===options.title)?"Remove Product":"Add Product"}</Button>
     </CardActions>
     </Card>
   

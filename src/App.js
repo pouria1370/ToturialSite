@@ -22,6 +22,14 @@ import ProductDetails from "./Pages/ProductDetails";
 import { ThemeProvider } from "@emotion/react";
 import { Container, createTheme } from "@mui/material";
 import ContactUs from "./Pages/ContactUs";
+import ChangePhoto from "./Pages/UserpanelChangePhoto";
+import UserpanelChangePhoto from "./Pages/UserpanelChangePhoto";
+import UserpanelChangePassword from "./Pages/UserpanelChangePassword";
+import UserpanelChangeColor from "./Pages/UserpanelChangeColor";
+import UserpanelChangeEmail from "./Pages/UserpanelChangeEmail";
+import UserpanelActiveGooleAuth from "./Pages/UserpanelActiveGooleAuth";
+import UserpanelActive2af from "./Pages/UserpanelActive2af";
+import UserpanelDeleteAccount from "./Pages/UserpanelDeleteAccount";
 const Data = [
   { name: "pouria", family: "kalantari", id: "jhbjgadjh" },
   { name: "pouria2", family: "kalantari2", id: "jhbjgadjdh" },
@@ -50,28 +58,13 @@ const App = () => {
       },
       MuiButton:{
         styleOverrides:{
-          root:({ownerState})=>({
-            ...(ownerState.color==="secondary"&&{
-              opacity:'0.3',
-              fontSize:'2rem'
-            })
-          })
+          root:{
+            color:'black',
+            '&:hover':{borderBottom:"4px solid red",marginLeft:"10px"},
+            '&:active':{borderBottom:"4px solid green",marginLeft:"10px",backgroundColor:'green',color:'white'}
+          }
         },
-        variants:[
-          {
-            props: { color: 'primary' },
-            style: {
-              textTransform: 'none',
-              border: `2px dashed #21f254`,
-            },
-          },
-          {
-            props: { variant: 'dashed', color: 'secondary' },
-            style: {
-              border: `4px dashed red`,
-            },
-          },
-        ],
+      
         
       },
       MuiIconButton:{
@@ -119,7 +112,15 @@ const App = () => {
         <Route path="/loginregistery" element={<LoginRegistery/>}></Route>
         <Route path="/products" element={<ProductsPage/>}></Route>
         <Route path="/userpanel/*" element={<UserPanelPage/>}>
-          <Route path="setting" element={<SettingUserPanelPage/>}/>
+          <Route path="setting" element={<SettingUserPanelPage/>}>
+            <Route path="changephoto" element={<UserpanelChangePhoto/>}/>
+            <Route path="changepassword" element={<UserpanelChangePassword/>}/>
+            <Route path="changecolor" element={<UserpanelChangeColor/>}/>
+            <Route path="changeemail" element={<UserpanelChangeEmail/>}/>
+            <Route path="active-goo-au" element={<UserpanelActiveGooleAuth/>}/>
+            <Route path="active2af" element={<UserpanelActive2af/>}/>
+            <Route path="deleteaccount" element={<UserpanelDeleteAccount/>}/>
+          </Route>
           <Route path="history" element={<HistoryUserPanelPage/>}/>
           <Route path="newsuggestion" element={<NewSuggestionUserPanelPage/>}/>
           <Route path="orderpersuit" element={<OrderPersuitUserPanelPage/>}/>

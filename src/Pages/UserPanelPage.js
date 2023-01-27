@@ -1,33 +1,38 @@
 import { Outlet } from "react-router-dom";
 import React from "react";
-import Wrapper from "../components/Wrapper";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
+import './UserPanelPage.css'
 const UserPanelPage = () => {
   return (
-    <Wrapper>
-      <div className="firstSection">
-        <ul className="columnNavigator">
-          <li>
-          <Button><Link to="setting">Setting</Link></Button>
+    <div className="usepanelpage-container">
+      
+        <ul className="firstSection">
+          <li style={{marginTop:'5%'}}>
+            <Link to="setting" style={{textDecoration:'none'}}>
+              <Button>Setting</Button>
+            </Link>
           </li>
-          <li>
-          <Button><Link to="history">History</Link></Button>
+          <li style={{marginTop:'5%' }}>
+            <Link to="history" style={{textDecoration:'none'}}>
+              <Button >History</Button>
+            </Link>
           </li>
-          <li>
-          <Button><Link to="newsuggestion">New Suggestions</Link></Button>
+          <li style={{marginTop:'5%'}}>
+            <Link to="newsuggestion" style={{textDecoration:'none'}}>
+              <Button>New Suggestions</Button>
+            </Link>
           </li>
-          <li>
-          <Button><Link to="orderpersuit">Order-Persuit</Link></Button>
+          <li style={{marginTop:'5%'}}>
+            <Link to="orderpersuit" style={{textDecoration:'none'}}>
+              <Button>Order-Persuit</Button>
+            </Link>
           </li>
-          
         </ul>
+      <div className="secondSection">   
+          <Outlet />    
       </div>
-      <div className="secondSection">
-      <div></div>
-        <Outlet />
-      </div>
-    </Wrapper>
+    </div>
   );
 };
 
